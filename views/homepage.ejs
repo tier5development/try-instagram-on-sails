@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="welcome row">
+        <div ng-controller="HomeController" class="span-md-5" ng-cloak>
+            {{ welcome }}
+            <ul>
+                <li ng-repeat="item in items">
+                    {{ item.link }}
+                </li>
+            </ul>
+            <a class="btn btn-default" href="/login"><i class="fa fa-instagram"></i> Login using Instagram</a>
+        </div>
+    </div>
+</div>
