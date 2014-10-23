@@ -1,5 +1,5 @@
 # try-instagram-on-sails
-================
+-------
 a [Sails](http://sailsjs.org) application
 
 
