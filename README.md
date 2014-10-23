@@ -20,5 +20,6 @@ module.exports = {
 }
 ```
   * better use localhost tunnel like (ngrok)(https://ngrok.com) so can run your app without using port 1337 in address bar
+  * run `sails lift` or `node app.js` then access it on `localhost:1337` or your local tunnel url
 
 
