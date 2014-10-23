@@ -1,6 +1,6 @@
 # try-instagram-on-sails
 
-a [Sails](http://sailsjs.org) application
+a [Sails](http://sailsjs.org) application from a newbie (not complete yet)
 
 
 ### Want to try?
