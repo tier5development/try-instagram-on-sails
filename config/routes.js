@@ -65,7 +65,8 @@ module.exports.routes = {
     action:'tagging'
   },
   'get /coba':'MainController.cobareq',
-  'get /handshake': 'MainController.handshake'
+  'get /handshake': 'MainController.handshake',
+  'get /foo/bar':'MainController.bar'
 
   /***************************************************************************
   *                                                                          *

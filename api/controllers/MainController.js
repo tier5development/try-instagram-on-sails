@@ -19,7 +19,7 @@ Instagram.set('client_secret', 'sails.config.instagram.client_secret');
 
 function sendMessage(url) {
   console.log(url);
-  sails.sockets.emit('show', { show: url });
+  sails.io.sockets.emit('show', { show: url });
 }
 
 module.exports = {
@@ -81,6 +81,7 @@ module.exports = {
 		},
 		function(err, result) {
   			console.log({err:err, res:result});
+  			res.view('tag',{tagged:result});
   			/*if(result){
   				res.json(result);
   				result.forEach(function(tag) {
@@ -93,8 +94,6 @@ module.exports = {
 		});
 	},
 	tagging:function(req,res){
-		var data = req.body;
-		console.log(data);
 
 		if(req.method == "GET"){
 			Instagram.subscriptions.handshake(req, res);
@@ -103,6 +102,9 @@ module.exports = {
 		// Grab the hashtag "tag.object_id"
 	    // concatenate to the url and send as a argument to the client side
 		if(req.method == "POST"){
+			var data = req.body;
+			console.log(data);
+			
 			data.forEach(function(tag) {
 		      var url = 'https://api.instagram.com/v1/tags/' + tag.object_id + '/media/recent?client_id='+sails.config.instagram.client_id;
 		      sendMessage(url);
@@ -114,6 +116,15 @@ module.exports = {
 	cobareq:function(req,res){
 		console.log(req);
 		res.json(req.query.tag);
-	}
+	},
+	bar: function (req, res) {
+
+        // Note, you can check whether this was a socket request
+        // with req.isSocket, and if so access the connecting
+        // socket with req.socket
+
+        res.json({"message": "Hello!"});
+
+    }
 
 };

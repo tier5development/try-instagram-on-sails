@@ -12,7 +12,7 @@ SailsInstagram.controller('HomeController',[
 					$scope.items = data.data;
 				});
 
-			$sails.on('show',function(msg){
+			io.socket.on('show',function(msg){
 				console.log(msg);
 			})
 		}
